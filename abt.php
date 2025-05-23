@@ -1,4 +1,11 @@
 <html>
+<?php
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+if (!isset($_SESSION['logged_in'])){
+	echo 'Youre not logged in, please log in <a href="http://localhost/cs295/logmein.php"> go back </a>';
+	die();
+}
+	?>
 <head>
     <title>Character Page</title>
     <style>
@@ -14,8 +21,16 @@
             width: 60%;
 		}
     </style>
+	<link rel="stylesheet" href="csss/styles.css">
 </head>
 <body>
+
+<div class="menu-bar">
+    <a href="http://localhost/cs295/summary.php">Summary</a>
+    <a href="http://localhost/cs195/video">New User</a>
+	<a href="http://localhost/cs195/pictures">Message Board</a> 
+  </div>
+  
     <h1>Character Page</h1>
     <div class="container">
         <?php
@@ -31,6 +46,10 @@
             }
         }
 		echo 'All Done';
+        ?>
+    </div>
+</body>
+</html>
         ?>
     </div>
 </body>
